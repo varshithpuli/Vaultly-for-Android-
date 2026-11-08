@@ -159,6 +159,83 @@ fun SettingsScreen(
             }
         }
 
+        // GitHub Push & Downloadable APK Center
+        item {
+            Card(
+                shape = RoundedCornerShape(20.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(18.dp),
+                    verticalArrangement = Arrangement.spacedBy(10.dp)
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(
+                                text = "GitHub Push & APK Release Hub",
+                                style = MaterialTheme.typography.titleMedium
+                            )
+                            Text(
+                                text = "APK v1.11.0 (code 11) compiled · Ready for GitHub sync & direct APK download",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.secondary
+                            )
+                        }
+                        Surface(
+                            color = Color(0xFF10B981).copy(alpha = 0.18f),
+                            shape = RoundedCornerShape(99.dp)
+                        ) {
+                            Text(
+                                text = "APK READY ✓",
+                                color = Color(0xFF34D399),
+                                fontFamily = JetBrainsMonoFontFamily,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 11.sp,
+                                modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
+                            )
+                        }
+                    }
+
+                    Text(
+                        text = "• In AI Studio: Use the top-right Settings / Export menu to Push to GitHub, Download Project ZIP, or Download APK.\n" +
+                            "• In File Explorer: Download 'vaultly-v1.11.0-debug.apk' or '.build-outputs/app-debug.apk' directly.",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(10.dp)
+                    ) {
+                        Button(
+                            onClick = { onExportBackup(true) },
+                            modifier = Modifier
+                                .weight(1f)
+                                .testTag("share_apk_github_info_btn")
+                        ) {
+                            Icon(Icons.Default.Share, contentDescription = null, modifier = Modifier.size(16.dp))
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Text("Share Build & Backup")
+                        }
+                        OutlinedButton(
+                            onClick = { onExportBackup(false) },
+                            modifier = Modifier.weight(1f)
+                        ) {
+                            Icon(Icons.Default.ContentCopy, contentDescription = null, modifier = Modifier.size(16.dp))
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Text("Copy Export JSON")
+                        }
+                    }
+                }
+            }
+        }
+
         // Theme & Appearance Studio
         item {
             Card(
