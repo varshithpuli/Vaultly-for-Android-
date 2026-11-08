@@ -1,0 +1,6 @@
+{
+  "name": "Vaultly",
+  "description": "A private, offline-first Material 3 vault for credit cards, bank accounts, IDs, 2FA logins, bills, and spend insights.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
